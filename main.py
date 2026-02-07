@@ -182,7 +182,6 @@ def get_line_keyboard():
         "Линия 3",
         "Линия 4",
         "Склад",
-        "Лаборатория",
         "Другое"
     ]
     keyboard.add(*lines)
@@ -624,3 +623,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
