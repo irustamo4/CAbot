@@ -441,8 +441,8 @@ def handle_type_step(message):
 
 def handle_shift_step(message):
     """Обработка выбора смены"""
-    if message.text not in ["1", "2", "3"]:
-        bot.send_message(message.chat.id, "❌ Пожалуйста, укажите смену (1, 2 или 3).")
+    if message.text not in ["Утренняя(6:00-15:30)", "Вечерняя(15:30-23:00)", "Ночная(23:00-6:00)"]:
+        bot.send_message(message.chat.id, "❌ Пожалуйста, укажите смену (Утренняя(6:00-15:30),Вечерняя(15:30-23:00) или Ночная(23:00-6:00)).")
         return
     
     update_defect_data(message.from_user.id, 'shift', message.text)
@@ -457,7 +457,7 @@ def handle_shift_step(message):
 
 def handle_line_step(message):
     """Обработка выбора линии"""
-    valid_lines = ["Линия 1", "Линия 2", "Линия 3", "Линия 4", "Склад", "Лаборатория", "Другое"]
+    valid_lines = ["Линия 1", "Линия 2", "Линия 3", "Линия 4", "Склад", "Другое"]
     
     if message.text not in valid_lines:
         bot.send_message(message.chat.id, "❌ Пожалуйста, выберите линию из списка.")
@@ -526,7 +526,7 @@ def handle_photo_step(message):
         'shift': defect_data['shift'],
         'line': defect_data['line'],
         'description': defect_data['description'],
-        'photo_id': defect_data.get('photo_id')
+        'photo_id': defect_data['photo_id']
     }
     
     # Сохраняем в базу
