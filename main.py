@@ -169,7 +169,7 @@ def get_defect_type_keyboard():
 def get_shift_keyboard():
     """Выбор смены"""
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=3)
-    keyboard.add("1", "2", "3")
+    keyboard.add("Утренняя(6:00-15:30)", "Вечерняя(15:30-23:00)", "Ночная(23:00-6:00)")
     keyboard.add("❌ Отмена")
     return keyboard
 
@@ -624,3 +624,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
